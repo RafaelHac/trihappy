@@ -3,8 +3,11 @@ package com.trihappy.alpha.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.trihappy.alpha.dto.AuthorDTO;
 
+@Document(collection="post")
 public class Post implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
