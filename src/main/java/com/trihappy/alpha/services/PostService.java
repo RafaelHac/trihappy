@@ -1,12 +1,12 @@
 package com.trihappy.alpha.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.trihappy.alpha.domain.Post;
-import com.trihappy.alpha.domain.User;
 import com.trihappy.alpha.repository.PostRepository;
 import com.trihappy.alpha.services.exception.ObjectNotFoundException;
 
@@ -19,5 +19,9 @@ public class PostService {
 	public Post findById(String id) {
 		Optional<Post> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+	}
+	
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
 	}
 }
